@@ -94,6 +94,8 @@ spec:
             {{- end }}
           env:
           {{- include "pyspark.customEnvironment" . | indent 10 }}
+            - name: JUPYTER_TOKEN
+              value: token
       {{- with .Values.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}
